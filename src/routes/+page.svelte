@@ -5,26 +5,28 @@
   }
 </script>
 
-<div class="p-4">
-  <div class="flex items-center space-x-4 mb-4">
-    <p>Deposit amount:</p>
+<div class="p-8">
+  <div class="flex items-center mb-2">
+    <p class="w-32 text-right mr-2">Deposit amount:</p>
+    <!-- Установим фиксированную ширину для метки -->
     <input
       on:input={handleInput}
       type="text"
       placeholder="100 000"
-      class="input input-bordered w-30"
+      class="input input-bordered w-40"
     />
-    <p>₽</p>
+    <p class="ml-2">₽</p>
   </div>
-  <div class="flex items-center space-x-4">
-    <p>Income:</p>
+  <div class="flex items-center">
+    <p class="w-32 text-right mr-2">Income:</p>
+    <!-- Установим фиксированную ширину для метки -->
     <input
       on:input={handleInput}
       type="text"
       placeholder="20"
-      class="input input-bordered w-30"
+      class="input input-bordered w-40"
     />
-    <p>%</p>
+    <p class="ml-2">%</p>
   </div>
 </div>
 
