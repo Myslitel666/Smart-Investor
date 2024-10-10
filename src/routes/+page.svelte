@@ -6,7 +6,7 @@
 </script>
 
 <div class="p-4">
-  <div class="flex items-center space-x-4">
+  <div class="flex items-center space-x-4 mb-4">
     <p>Deposit amount:</p>
     <input
       on:input={handleInput}
@@ -15,6 +15,16 @@
       class="input input-bordered w-30"
     />
     <p>₽</p>
+  </div>
+  <div class="flex items-center space-x-4">
+    <p>Income:</p>
+    <input
+      on:input={handleInput}
+      type="text"
+      placeholder="20"
+      class="input input-bordered w-30"
+    />
+    <p>%</p>
   </div>
 </div>
 
