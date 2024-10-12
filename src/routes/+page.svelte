@@ -19,6 +19,8 @@
   let mr = `mr-${m}`;
   let wLabel = `w-52`;
   let wInput = `w-40`;
+
+  let durationUnits = ["Years", "Months"];
 </script>
 
 <div class={`p-${m}`}>
@@ -56,14 +58,15 @@
 
     <details class="dropdown">
       <summary class="btn {wInput}" on:click={toggleDropdown}>
-        open or close
+        {durationUnits[0]}
       </summary>
       {#if isOpen}
         <ul
           class="menu dropdown-content bg-base-100 rounded-box z-[1] {wInput} p-2 shadow"
         >
-          <li><a on:click={closeDropdown}>Years</a></li>
-          <li><a on:click={closeDropdown}>Months</a></li>
+          {#each durationUnits as unit}
+            <li><a on:click={() => closeDropdown(unit)}>{unit}</a></li>
+          {/each}
         </ul>
       {/if}
     </details>
