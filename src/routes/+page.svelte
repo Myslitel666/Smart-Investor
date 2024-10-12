@@ -1,7 +1,7 @@
 <script>
   let isOpen = false;
 
-  function toggleDropdown() {
+  function openDropdown() {
     isOpen = true;
   }
 
@@ -58,20 +58,34 @@
       class="input input-bordered {wInput} {mr}"
     />
 
-    <details class="dropdown">
-      <summary class="btn {wInput}" on:click={toggleDropdown}>
+    <div class="dropdown">
+      <div
+        tabindex="0"
+        role="button"
+        class="btn {wInput} m-1"
+        on:click={openDropdown}
+      >
         {durationUnits[durationIndex]}
-      </summary>
+      </div>
       {#if isOpen}
         <ul
-          class="menu dropdown-content bg-base-100 rounded-box z-[1] {wInput} p-2 shadow"
+          class="dropdown-content menu bg-base-100 rounded-box z-[1] {wInput} p-2 shadow"
         >
           {#each durationUnits as unit, index}
-            <li><a on:click={() => closeDropdown(index)}>{unit}</a></li>
+            <li>
+              <a
+                href="#"
+                on:click={() => {
+                  closeDropdown(index);
+                }}
+              >
+                {unit}
+              </a>
+            </li>
           {/each}
         </ul>
       {/if}
-    </details>
+    </div>
 
     <style>
     </style>
