@@ -5,8 +5,9 @@
     isOpen = true;
   }
 
-  function closeDropdown() {
+  function closeDropdown(index) {
     isOpen = false;
+    durationIndex = index;
   }
 
   function handleInput(event) {
@@ -21,6 +22,7 @@
   let wInput = `w-40`;
 
   let durationUnits = ["Years", "Months"];
+  let durationIndex = 0;
 </script>
 
 <div class={`p-${m}`}>
@@ -58,14 +60,14 @@
 
     <details class="dropdown">
       <summary class="btn {wInput}" on:click={toggleDropdown}>
-        {durationUnits[0]}
+        {durationUnits[durationIndex]}
       </summary>
       {#if isOpen}
         <ul
           class="menu dropdown-content bg-base-100 rounded-box z-[1] {wInput} p-2 shadow"
         >
-          {#each durationUnits as unit}
-            <li><a on:click={() => closeDropdown(unit)}>{unit}</a></li>
+          {#each durationUnits as unit, index}
+            <li><a on:click={() => closeDropdown(index)}>{unit}</a></li>
           {/each}
         </ul>
       {/if}
