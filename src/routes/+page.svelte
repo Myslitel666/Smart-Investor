@@ -30,6 +30,11 @@
 	function getResult() {
 		if (!(deposit)||!(term)||!(rate)) {
 			error = true;
+
+			// Сбрасываем error через 3 секунды
+			setTimeout(() => {
+				error = false;
+			}, 1750); // 3000 мс = 3 секунды
 		}
 		else {
 			result = '5347'
