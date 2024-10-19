@@ -2,6 +2,7 @@
 	import { ThemeProvider,
 			TextField
 	} from "svelte-elegant";
+	import AutoComplete from "../components/AutoComplete.svelte";
 
 	let primary = '#0074e1'
 </script>
@@ -24,6 +25,7 @@
 					label = 'Deposit' 
 					primaryColor = {primary}
 					backgroundColor = 'white'
+					width = '100%'
 				/>
 				<img src = './icons/shutterstock_2069344.png' class = 'ico'/>
 			</div>
@@ -32,8 +34,12 @@
 					label = 'Income' 
 					primaryColor = {primary}
 					backgroundColor = 'white'
+					width = '100%'
 				/>
 				<img src = './icons/percent.png' class = 'ico'/>
+			</div>
+			<div class = 'row'>
+				<AutoComplete/>
 			</div>
 		</div>
 	</div>
@@ -68,6 +74,7 @@
 		flex-direction: row; /* Элементы располагаются горизонтально (в строку) */
 		align-items: center; /* Центрирует элементы по вертикали */
 		gap: 0.5rem; /* Отступ между TextField и иконкой */
+		width: 100%;
   	}
 
 	.logo {
