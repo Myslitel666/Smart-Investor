@@ -37,7 +37,21 @@
 			}, 1750); // 3000 мс = 3 секунды
 		}
 		else {
-			result = '5347'
+			const P = parseFloat(deposit); // Начальная сумма
+            const r = parseFloat(rate) / 100; // Годовая ставка в десятичной форме
+            const t = parseFloat(term); // Срок
+            let n = 12; // Проценты начисляются ежемесячно
+
+            if (timeUnits === "Months") {
+                n = 1; // Если годы, то начисляем 1 раз в год
+            }
+
+			let finallySum = P;
+			// Цикл for для расчета сложного процента
+			for (let i = 0; i < n * t; i++) {
+                finallySum *= (1 + r/12); // Применяем формулу сложного процента для каждого периода
+            }
+            result = finallySum.toFixed(2); // Форматируем результат до 2 знаков после запятой
 		}
 	}
 </script>
