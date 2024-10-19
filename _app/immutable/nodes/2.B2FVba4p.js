@@ -1,0 +1,1 @@
+import{a as t,t as r}from"../chunks/disclose-version.BPoVdhs0.js";const a=!0,l=Object.freeze(Object.defineProperty({__proto__:null,prerender:a},Symbol.toStringTag,{value:"Module"}));var p=r("<p>Hello</p>");function s(e){var o=p();t(e,o)}export{s as component,l as universal};
