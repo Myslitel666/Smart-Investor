@@ -13,6 +13,10 @@
 	let rate = ''
 	let term = ''
 
+	//Result
+	let error = false
+	let result = ''
+
 	// Функция для форматирования числа с пробелами
     function handleInput(str: string) {
         str = str.replace(/[^\d.,]/g, ''); // Убираем все нецифровые символы
@@ -22,6 +26,15 @@
 		
 		return str;
     }
+
+	function getResult() {
+		if (!(deposit)||!(term)||!(rate)) {
+			error = true;
+		}
+		else {
+			result = '5347'
+		}
+	}
 </script>
 
 <ThemeProvider>
@@ -45,6 +58,11 @@
 	<div class = 'content'>
 		<div class = 'main-box'>
 			<img src = './smart-investor-logo.png' class = 'box-logo'/>
+			{#if error}
+				<div class = 'row'>
+					<p class = 'message'>✘Enter the required data</p>
+				</div>
+			{/if}
 			<div class = 'row'>
 				<TextField 
 					bind:value = {deposit} 
@@ -87,6 +105,7 @@
 			>
 				<button 
 					class = 'calculate-button'
+					onclick = {getResult}
 					style:background-color = {primary}
 				>
 					<p style:color = 'white'>GET RESULT</p>
@@ -103,11 +122,25 @@
 						deposit = ''
 						rate = ''
 						term = ''
+						result = ''
+						error = false
 					}}
 				>
 					<p style:color = {primary}>CLEAR</p>
 				</button>
 			</div>
+			{#if result}
+				<div 
+					class = 'row'
+				>
+					<p class = 'result' style:font-weight = 600>Result</p>
+				</div>
+				<div 
+					class = 'row'
+				>
+					<p class = 'result'>The Final Amount: 567</p>
+				</div>
+			{/if}
 		</div>
 	</div>
 </ThemeProvider>
@@ -141,6 +174,7 @@
 		display: flex;
 		flex-direction: row; /* Элементы располагаются горизонтально (в строку) */
 		align-items: center; /* Центрирует элементы по вертикали */
+		justify-content: center;
 		gap: 0.5rem; /* Отступ между TextField и иконкой */
 		width: 100%;
   	}
@@ -192,16 +226,27 @@
 		margin-bottom: 0.5rem;
 	}
 
+	.ico {
+		width: 3.75rem;
+	}
+
+	.result {
+		margin-top: 0.25rem;
+		font-size: 16px;
+	}
+
+	.message {
+		margin-bottom: 0.15rem;
+		margin-right: auto;
+		color: #ee2f2f;
+	}
+
 	.logo:hover {
 		transform: scale(1.2);
 	}
 
 	.calculate-button:hover {
 		filter: brightness(1.25);
-	}
-
-	.ico {
-		width: 3.75rem;
 	}
 
 	@media (max-width: 725px) {
