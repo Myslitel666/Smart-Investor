@@ -1,28 +1,54 @@
-<script>
+<script lang='ts'>
 	import { ThemeProvider,
 			TextField,
 			Button
 	} from "svelte-elegant";
 	import AutoComplete from "../components/AutoComplete.svelte";
 
+	//Styles
 	let primary = '#0074e1'
+
+	//Functions
+	let deposit = ''
+	let rate = ''
+	let term = ''
+
+	// Функция для форматирования числа с пробелами
+    function handleInput(str: string) {
+        str = str.replace(/[^\d.,]/g, ''); // Убираем все нецифровые символы
+		str = str.replace(',','.') // Заменяем запятые на точки\
+		const firstDotIndex = str.indexOf('.'); //Запоминаем индекс точки, если он есть
+		str = str.slice(0, firstDotIndex + 1) + str.slice(firstDotIndex + 1).replace(/\./g, ''); //Запрещаем ввод нескольких точек
+		
+		return str;
+    }
 </script>
 
 <ThemeProvider>
 	<div class = 'header'>
-		<img src = './USD-Coin-Logo-PNG-Images1.png' class = 'logo'>
-		<p class = 'logo-p'>
-			<span style:color={primary}>
-				Smart
-			</span> 
-			Investor
-		</p>
+		<button 
+			on:click = {()=>{
+				deposit = '100000'
+				rate = '20'
+				term = '1'
+			}}
+		>
+			<img src = './USD-Coin-Logo-PNG-Images1.png' class = 'logo'>
+			<p class = 'logo-p'>
+				<span style:color={primary}>
+					Smart
+				</span> 
+				Investor
+			</p>
+		</button>
 	</div>
 	<div class = 'content'>
 		<div class = 'main-box'>
 			<img src = './smart-investor-logo.png' class = 'box-logo'/>
 			<div class = 'row'>
 				<TextField 
+					bind:value = {deposit} 
+					oninput = {()=>{deposit = handleInput(deposit)}}
 					label = 'Deposit' 
 					primaryColor = {primary}
 					backgroundColor = 'white'
@@ -32,7 +58,9 @@
 			</div>
 			<div class = 'row'>
 				<TextField 
-					label = 'Income' 
+					bind:value = {rate}
+					oninput = {()=>{rate = handleInput(rate)}}
+					label = 'Interest Rate' 
 					primaryColor = {primary}
 					backgroundColor = 'white'
 					width = '100%'
@@ -44,6 +72,8 @@
 				style:margin-top = '0.1rem'
 			>
 				<TextField 
+					bind:value = {term}
+					oninput = {()=>{term = handleInput(term)}}
 					label = 'Investment Term' 
 					primaryColor = {primary}
 					backgroundColor = 'white'
