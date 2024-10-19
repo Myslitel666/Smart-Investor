@@ -5,7 +5,12 @@
 <ThemeProvider>
 	<div class = 'header'>
 		<img src = './USD-Coin-Logo-PNG-Images1.png' class = 'logo'>
-		<p class = 'logo-p'>Smart Investor</p>
+		<p class = 'logo-p'>
+			<span style:color='#0074e1'>
+				Smart
+			</span> 
+			Investor
+		</p>
 	</div>
 	<div class = 'content'>
 		<img src = './smart-investor-logo.png' class = 'box-logo'>
@@ -15,7 +20,6 @@
 <style>
 	.header {
 		height: 4rem;
-		background-color: #f9f9f9;
 		display: flex;
 		align-items: center; /* Центрирует по вертикали */
 	}
@@ -36,6 +40,7 @@
 	.logo-p {
 		margin-left: 0.5rem;
 		font-size: 26px;
+		color: #383838;
 	}
 
 	.box-logo {
