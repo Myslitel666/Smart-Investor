@@ -10,7 +10,7 @@
 
 <style>
 	.header {
-		height: 2rem;
-		color: #e8e8e8;
+		height: 3.66rem;
+		background-color: #f9f9f9;
 	}
 </style>
