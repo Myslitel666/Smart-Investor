@@ -39,14 +39,28 @@
 				/>
 				<img src = './icons/percent.png' class = 'ico'/>
 			</div>
-			<div class = 'row'>
+			<div 
+				class = 'row'
+				style:margin-top = '0.1rem'
+			>
 				<TextField 
-					label = 'Duration of the investment' 
+					label = 'Investment Term' 
 					primaryColor = {primary}
 					backgroundColor = 'white'
-					width = '100%'
+					width = '60%'
 				/>
-				<AutoComplete width = '50%'/>
+				<AutoComplete width = '40%'/>
+			</div>
+			<div 
+				class = 'row'
+				style:margin-top = '0.5rem'
+			>
+				<button 
+					class = 'calculate-button'
+					style:background-color = {primary}
+				>
+					<p style:color = 'white'>GET RESULT</p>
+				</button>
 			</div>
 		</div>
 	</div>
@@ -65,15 +79,16 @@
 	}
 
 	.main-box {
+		margin-top: 0.5rem;
 		padding: 1rem;
 		display: flex;
 		flex-direction: column; /* Располагает элементы вертикально */
 		align-items: center; /* Опционально: центрирует элементы по горизонтали */
-		width: 35rem;
+		width: 40rem;
 		border: solid #d2d2d2 1px;
 		background-color: #fafafa;
 		border-radius: 7px;
-		gap: 0rem; /* Вертикальный отступ */
+		gap: 0.2rem
 	}
 
 	.row {
@@ -83,6 +98,16 @@
 		gap: 0.5rem; /* Отступ между TextField и иконкой */
 		width: 100%;
   	}
+
+	.calculate-button {
+		width: 100%;
+		border-radius: 4px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 3rem;
+		transition: filter 0.3s;
+	}
 
 	.logo {
 		margin-left: 0.5rem;
@@ -109,8 +134,11 @@
 		transform: scale(1.2);
 	}
 
+	.calculate-button:hover {
+		filter: brightness(1.25);
+	}
+
 	.ico {
 		width: 3.75rem;
-		margin-bottom: 0.25rem;
 	}
 </style>

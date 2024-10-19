@@ -49,6 +49,7 @@
         class="dropdown-list"
         style:width = '100%'
 
+        style:visibility = {isOpen ? '' : 'hidden'}
         style:opacity = {isOpen ? 1 : 0}
         style:transition = 'opacity 0.3s'
     >
@@ -95,6 +96,9 @@
         padding: 10px;
         cursor: pointer;
         transition: background-color 0.3s;
+
+        display: flex;
+		justify-content: center; /* Центрирует по горизонтали */
     }
   
     .dropdown-item:hover {
