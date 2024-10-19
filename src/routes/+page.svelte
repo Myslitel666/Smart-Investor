@@ -39,7 +39,13 @@
 				<img src = './icons/percent.png' class = 'ico'/>
 			</div>
 			<div class = 'row'>
-				<AutoComplete/>
+				<TextField 
+					label = 'Duration of the investment' 
+					primaryColor = {primary}
+					backgroundColor = 'white'
+					width = '100%'
+				/>
+				<AutoComplete width = '50%'/>
 			</div>
 		</div>
 	</div>

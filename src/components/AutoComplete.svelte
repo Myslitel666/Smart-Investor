@@ -48,7 +48,7 @@
     <!-- Список опций, который показывается при открытии -->
     <div 
         class="dropdown-list"
-        style:width = {width}
+        style:width = '100%'
     >
     {#each options as option}
         <div 
@@ -67,8 +67,11 @@
     }
   
     .dropdown-header {
+        display: flex;
+        justify-content: center; /* Центрирует по горизонтали */
+        align-items: center;
         padding: 10px;
-        background-color: #f0f0f0;
+        background-color: #ebebeb;
         border: none;
         border-radius: 4px;
         cursor: pointer;
@@ -89,10 +92,11 @@
     .dropdown-item {
         padding: 10px;
         cursor: pointer;
+        transition: background-color 0.5s;
     }
   
     .dropdown-item:hover {
-        background-color: #f1f1f1;
+        background-color: #ebf5ff;
     }
   </style>
   
