@@ -19,10 +19,13 @@
 	<div class = 'content'>
 		<div class = 'main-box'>
 			<img src = './smart-investor-logo.png' class = 'box-logo'/>
-			<TextField 
-				label = 'Deposit' 
-				primaryColor = {primary}
-			/>
+			<div class = 'row'>
+				<TextField 
+					label = 'Deposit' 
+					primaryColor = {primary}
+				/>
+				<img src = './icons/shutterstock_2069344.png' class = 'ico'/>
+			</div>
 		</div>
 	</div>
 </ThemeProvider>
@@ -51,6 +54,13 @@
 		gap: 1rem; /* Вертикальный отступ */
 	}
 
+	.row {
+		display: flex;
+		flex-direction: row; /* Элементы располагаются горизонтально (в строку) */
+		align-items: center; /* Центрирует элементы по вертикали */
+		gap: 0.5rem; /* Отступ между TextField и иконкой */
+  	}
+
 	.logo {
 		margin-left: 0.5rem;
 		width: 4.25rem;
@@ -73,5 +83,10 @@
 	.logo:hover {
 		cursor: pointer;
 		transform: scale(1.2);
+	}
+
+	.ico {
+		width: 3.75rem;
+		height: 3.75rem;
 	}
 </style>
