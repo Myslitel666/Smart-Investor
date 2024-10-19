@@ -1,14 +1,16 @@
 <script>
 	import { ThemeProvider,
 			TextField
-	 } from "svelte-elegant";
+	} from "svelte-elegant";
+
+	let primary = '#0074e1'
 </script>
 
 <ThemeProvider>
 	<div class = 'header'>
 		<img src = './USD-Coin-Logo-PNG-Images1.png' class = 'logo'>
 		<p class = 'logo-p'>
-			<span style:color='#0074e1'>
+			<span style:color={primary}>
 				Smart
 			</span> 
 			Investor
@@ -17,7 +19,10 @@
 	<div class = 'content'>
 		<div class = 'main-box'>
 			<img src = './smart-investor-logo.png' class = 'box-logo'/>
-			<TextField label = 'Deposit' primaryColor = '#0074e1'/>
+			<TextField 
+				label = 'Deposit' 
+				primaryColor = {primary}
+			/>
 		</div>
 	</div>
 </ThemeProvider>
