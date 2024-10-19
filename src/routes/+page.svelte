@@ -27,7 +27,7 @@
 <ThemeProvider>
 	<div class = 'header'>
 		<button 
-			on:click = {()=>{
+			onclick = {()=>{
 				deposit = '100000'
 				rate = '20'
 				term = '1'
@@ -92,6 +92,22 @@
 					<p style:color = 'white'>GET RESULT</p>
 				</button>
 			</div>
+			<div 
+				class = 'row'
+				style:margin-top = '0.5rem'
+			>
+				<button 
+					class = 'clear-button'
+					style:border-color = {primary}
+					onclick = {()=>{
+						deposit = ''
+						rate = ''
+						term = ''
+					}}
+				>
+					<p style:color = {primary}>CLEAR</p>
+				</button>
+			</div>
 		</div>
 	</div>
 </ThemeProvider>
@@ -139,6 +155,23 @@
 		transition: filter 0.3s;
 	}
 
+	
+	.clear-button {
+		width: 100%;
+		border-radius: 4px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 3rem;
+		transition: filter 0.3s;
+		border: solid 1px;
+		transition: background-color 0.3s;
+	}
+
+	.clear-button:hover {
+		background-color: #ebf5ff;
+	}
+
 	.logo {
 		margin-left: 0.5rem;
 		width: 4.25rem;
@@ -160,7 +193,6 @@
 	}
 
 	.logo:hover {
-		cursor: pointer;
 		transform: scale(1.2);
 	}
 
