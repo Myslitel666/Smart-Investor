@@ -1,23 +1,25 @@
-<script>
+<script lang='ts'>
     let isOpen = false;          // Состояние открытия/закрытия списка
     let selectedOption = "Years";  // По умолчанию выбранный элемент
     let options = ["Years", "Months"];  // Опции для выбора
   
     // Функция для открытия/закрытия списка
     function toggleDropdown() {
-      isOpen = !isOpen;
+        isOpen = !isOpen;
     }
   
     // Функция для выбора опции
     function selectOption(option) {
-      selectedOption = option;
-      isOpen = false;
+        selectedOption = option;
+        isOpen = false;
     }
-  </script>
+</script>
   
   <div class="dropdown-container">
     <!-- Элемент, который заменяет заголовок select -->
-    <div class="dropdown-header" on:click={toggleDropdown}>
+    <div 
+        class="dropdown-header" on:click={toggleDropdown}
+    >
       {selectedOption} <!-- Показ выбранного элемента -->
     </div>
   
