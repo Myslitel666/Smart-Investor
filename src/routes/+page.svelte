@@ -1,6 +1,7 @@
 <script>
 	import { ThemeProvider,
-			TextField
+			TextField,
+			Button
 	} from "svelte-elegant";
 	import AutoComplete from "../components/AutoComplete.svelte";
 

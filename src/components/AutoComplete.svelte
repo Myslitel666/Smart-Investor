@@ -73,7 +73,7 @@
         align-items: center;
         padding: 10px;
         background-color: #ebebeb;
-        border: none;
+        border: solid #ebebeb 3px;
         border-radius: 4px;
         cursor: pointer;
         height: 1.5rem;
