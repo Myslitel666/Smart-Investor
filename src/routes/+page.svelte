@@ -123,6 +123,7 @@
 				<button 
 					class = 'clear-button'
 					style:border-color = {primary}
+					style:margin-bottom = 0.3rem
 					onclick = {()=>{
 						deposit = ''
 						rate = ''
@@ -236,7 +237,6 @@
 	}
 
 	.result {
-		margin-top: 0.25rem;
 		font-size: 16px;
 	}
 
