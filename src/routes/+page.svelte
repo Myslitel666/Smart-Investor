@@ -84,7 +84,7 @@
 		display: flex;
 		flex-direction: column; /* Располагает элементы вертикально */
 		align-items: center; /* Опционально: центрирует элементы по горизонтали */
-		width: 40rem;
+		width: 650px;
 		border: solid #d2d2d2 1px;
 		background-color: #fafafa;
 		border-radius: 7px;
@@ -140,5 +140,16 @@
 
 	.ico {
 		width: 3.75rem;
+	}
+
+	@media (max-width: 725px) {
+		.main-box {
+			width: 100%; /* Ширина main-box станет 100% на экранах меньше 768px */
+		}
+
+		.content {
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
 	}
 </style>
