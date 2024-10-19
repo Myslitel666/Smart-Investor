@@ -94,7 +94,7 @@
     .dropdown-item {
         padding: 10px;
         cursor: pointer;
-        transition: background-color 0.5s;
+        transition: background-color 0.3s;
     }
   
     .dropdown-item:hover {
