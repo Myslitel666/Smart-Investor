@@ -23,6 +23,7 @@
 				<TextField 
 					label = 'Deposit' 
 					primaryColor = {primary}
+					backgroundColor = 'white'
 				/>
 				<img src = './icons/shutterstock_2069344.png' class = 'ico'/>
 			</div>
