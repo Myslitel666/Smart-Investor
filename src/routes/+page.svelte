@@ -13,7 +13,9 @@
 		</p>
 	</div>
 	<div class = 'content'>
-		<img src = './smart-investor-logo.png' class = 'box-logo'>
+		<div class = 'main-box'>
+			<img src = './smart-investor-logo.png' class = 'box-logo'>
+		</div>
 	</div>
 </ThemeProvider>
 
@@ -27,7 +29,16 @@
 	.content {
 		display: flex;
 		justify-content: center; /* Центрирует по горизонтали */
-		height: 100vh;
+	}
+
+	.main-box {
+		display: flex;
+		justify-content: center; /* Центрирует по горизонтали */
+		height: 30rem;
+		width: 35rem;
+		border: solid #d2d2d2 1px;
+		background-color: #fafafa;
+		border-radius: 7px;
 	}
 
 	.logo {
@@ -45,8 +56,8 @@
 
 	.box-logo {
 		margin-top: 1rem;
-		width: 4.25rem;
-		height: 4.25rem;
+		width: 6.25rem;
+		height: 6.25rem;
 		border-radius: 50%;
 	}
 
