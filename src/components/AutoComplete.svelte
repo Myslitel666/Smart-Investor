@@ -44,11 +44,13 @@
     {selectedOption} <!-- Показ выбранного элемента -->
 </div>
 
-{#if isOpen}
     <!-- Список опций, который показывается при открытии -->
     <div 
         class="dropdown-list"
         style:width = '100%'
+
+        style:opacity = {isOpen ? 1 : 0}
+        style:transition = 'opacity 0.3s'
     >
     {#each options as option}
         <div 
@@ -58,7 +60,6 @@
         </div>
     {/each}
     </div>
-{/if}
 </div>
   
   <style>
@@ -76,6 +77,7 @@
         border-radius: 4px;
         cursor: pointer;
         height: 1.5rem;
+        color: #303030;
     }
   
     .dropdown-list {
