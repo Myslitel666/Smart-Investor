@@ -26,6 +26,13 @@
 				/>
 				<img src = './icons/shutterstock_2069344.png' class = 'ico'/>
 			</div>
+			<div class = 'row'>
+				<TextField 
+					label = 'Income' 
+					primaryColor = {primary}
+				/>
+				<img src = './icons/percent.png' class = 'ico'/>
+			</div>
 		</div>
 	</div>
 </ThemeProvider>
@@ -51,7 +58,7 @@
 		border: solid #d2d2d2 1px;
 		background-color: #fafafa;
 		border-radius: 7px;
-		gap: 1rem; /* Вертикальный отступ */
+		gap: 0rem; /* Вертикальный отступ */
 	}
 
 	.row {
@@ -87,6 +94,5 @@
 
 	.ico {
 		width: 3.75rem;
-		height: 3.75rem;
 	}
 </style>
