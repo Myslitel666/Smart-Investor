@@ -32,7 +32,9 @@
 <div 
     class="dropdown-header" on:click={toggleDropdown}
     bind:this={autoCompleteRef}
-    on:mousedown={()=>{document.addEventListener('mousedown', handleClickOutside);}}
+    on:mousedown={()=>{
+        document.addEventListener('mousedown', handleClickOutside);
+    }}
 >
     {selectedOption} <!-- Показ выбранного элемента -->
 </div>
@@ -41,7 +43,7 @@
     <!-- Список опций, который показывается при открытии -->
     <div class="dropdown-list">
     {#each options as option}
-        <div class="dropdown-item" on:click={() => selectOption(option)}>
+        <div class="dropdown-item" on:mousedown={() => selectOption(option)}>
         {option}
         </div>
     {/each}
