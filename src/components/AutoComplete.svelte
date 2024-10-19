@@ -2,6 +2,8 @@
     let isOpen = false;          // Состояние открытия/закрытия списка
     let selectedOption = "Years";  // По умолчанию выбранный элемент
     let options = ["Years", "Months"];  // Опции для выбора
+
+    let autoCompleteRef: HTMLElement;
   
     // Функция для открытия/закрытия списка
     function toggleDropdown() {
@@ -13,27 +15,39 @@
         selectedOption = option;
         isOpen = false;
     }
+
+    // Функция, которая будет вызвана при клике вне AutoComplete
+    function handleClickOutside(event: MouseEvent) {
+        let node = event.target as Node;
+
+        if (autoCompleteRef && !autoCompleteRef.contains(node)) {
+            isOpen ? toggleDropdown() : ''
+            document.removeEventListener('mousedown', handleClickOutside); //Удаляем обработчик из root после утраты фокуса AutoComplete
+        }
+    }
 </script>
   
-  <div class="dropdown-container">
-    <!-- Элемент, который заменяет заголовок select -->
-    <div 
-        class="dropdown-header" on:click={toggleDropdown}
-    >
-      {selectedOption} <!-- Показ выбранного элемента -->
+<div class="dropdown-container">
+<!-- Элемент, который заменяет заголовок select -->
+<div 
+    class="dropdown-header" on:click={toggleDropdown}
+    bind:this={autoCompleteRef}
+    on:mousedown={()=>{document.addEventListener('mousedown', handleClickOutside);}}
+>
+    {selectedOption} <!-- Показ выбранного элемента -->
+</div>
+
+{#if isOpen}
+    <!-- Список опций, который показывается при открытии -->
+    <div class="dropdown-list">
+    {#each options as option}
+        <div class="dropdown-item" on:click={() => selectOption(option)}>
+        {option}
+        </div>
+    {/each}
     </div>
-  
-    {#if isOpen}
-      <!-- Список опций, который показывается при открытии -->
-      <div class="dropdown-list">
-        {#each options as option}
-          <div class="dropdown-item" on:click={() => selectOption(option)}>
-            {option}
-          </div>
-        {/each}
-      </div>
-    {/if}
-  </div>
+{/if}
+</div>
   
   <style>
     .dropdown-container {
