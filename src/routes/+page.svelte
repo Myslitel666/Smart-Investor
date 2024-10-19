@@ -31,6 +31,7 @@
 				<TextField 
 					label = 'Income' 
 					primaryColor = {primary}
+					backgroundColor = 'white'
 				/>
 				<img src = './icons/percent.png' class = 'ico'/>
 			</div>
