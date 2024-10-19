@@ -1,6 +1,6 @@
 <script lang='ts'>
+    export let selectedOption = "Months";  // По умолчанию выбранный элемент
     let isOpen = false;          // Состояние открытия/закрытия списка
-    let selectedOption = "Years";  // По умолчанию выбранный элемент
     let options = ["Years", "Months"];  // Опции для выбора
     let autoCompleteRef: HTMLElement;
 

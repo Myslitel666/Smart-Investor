@@ -11,6 +11,7 @@
 	let deposit = ''
 	let rate = ''
 	let term = ''
+	let timeUnits = 'Months'
 
 	//Result
 	let error = false
@@ -48,6 +49,7 @@
 				deposit = '100000'
 				rate = '20'
 				term = '1'
+				timeUnits = "Months"
 			}}
 		>
 			<img src = './USD-Coin-Logo-PNG-Images1.png' class = 'logo'>
@@ -101,7 +103,10 @@
 					backgroundColor = 'white'
 					width = '60%'
 				/>
-				<AutoComplete width = '40%'/>
+				<AutoComplete 
+					bind:selectedOption = {timeUnits}
+					width = '40%'
+				/>
 			</div>
 			<div 
 				class = 'row'
