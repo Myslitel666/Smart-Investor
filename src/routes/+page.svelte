@@ -1,5 +1,7 @@
 <script>
-	import { ThemeProvider } from "svelte-elegant";
+	import { ThemeProvider,
+			TextField
+	 } from "svelte-elegant";
 </script>
 
 <ThemeProvider>
@@ -14,7 +16,8 @@
 	</div>
 	<div class = 'content'>
 		<div class = 'main-box'>
-			<img src = './smart-investor-logo.png' class = 'box-logo'>
+			<img src = './smart-investor-logo.png' class = 'box-logo'/>
+			<TextField label = 'Deposit' primaryColor = '#0074e1'/>
 		</div>
 	</div>
 </ThemeProvider>
@@ -32,13 +35,15 @@
 	}
 
 	.main-box {
+		padding: 1rem;
 		display: flex;
-		justify-content: center; /* Центрирует по горизонтали */
-		height: 30rem;
+		flex-direction: column; /* Располагает элементы вертикально */
+		align-items: center; /* Опционально: центрирует элементы по горизонтали */
 		width: 35rem;
 		border: solid #d2d2d2 1px;
 		background-color: #fafafa;
 		border-radius: 7px;
+		gap: 1rem; /* Вертикальный отступ */
 	}
 
 	.logo {
@@ -55,7 +60,6 @@
 	}
 
 	.box-logo {
-		margin-top: 1rem;
 		width: 6.25rem;
 		height: 6.25rem;
 		border-radius: 50%;
