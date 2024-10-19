@@ -1,7 +1,6 @@
 <script lang='ts'>
 	import { ThemeProvider,
-			TextField,
-			Button
+			TextField
 	} from "svelte-elegant";
 	import AutoComplete from "../components/AutoComplete.svelte";
 
@@ -144,7 +143,7 @@
 				<div 
 					class = 'row'
 				>
-					<p class = 'result'>The Final Amount: 567</p>
+					<p class = 'result'>The Final Amount: <strong style:font-weight='600'>{result} CU </strong> (Currency Unit)</p>
 				</div>
 			{/if}
 		</div>
