@@ -85,6 +85,7 @@
 		width: 6.25rem;
 		height: 6.25rem;
 		border-radius: 50%;
+		margin-bottom: 0.5rem;
 	}
 
 	.logo:hover {
@@ -94,5 +95,6 @@
 
 	.ico {
 		width: 3.75rem;
+		margin-bottom: 0.25rem;
 	}
 </style>
