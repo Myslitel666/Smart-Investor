@@ -4,7 +4,8 @@
 
 <ThemeProvider>
 	<div class = 'header'>
-		<img src = './USD-Coin-Logo-PNG-Images.png' class = 'logo'>
+		<img src = './USD-Coin-Logo-PNG-Images1.png' class = 'logo'>
+		<p class = 'logo-p'>Smart Investor</p>
 	</div>
 	<div class = 'content'>
 		<img src = './smart-investor-logo.png' class = 'box-logo'>
@@ -30,6 +31,11 @@
 		width: 4.25rem;
 		height: 4.25rem;
 		transition: transform 0.5s;
+	}
+
+	.logo-p {
+		margin-left: 0.5rem;
+		font-size: 26px;
 	}
 
 	.box-logo {
