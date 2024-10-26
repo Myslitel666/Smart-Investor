@@ -313,7 +313,7 @@
 
 	.result {
 		font-size: 16px;
-		color: #1C5E9C
+		color: #115BA0
 	}
 
 	.message {
