@@ -1,6 +1,7 @@
 <script lang='ts'>
 	import { ThemeProvider,
-			TextField
+			TextField,
+			Switch
 	} from "svelte-elegant";
 	import AutoComplete from "../components/AutoComplete.svelte";
 
@@ -126,6 +127,12 @@
 				class = 'row'
 				style:margin-top = '0.5rem'
 			>
+				<Switch color = {primary}/>
+				</div>
+			<div 
+				class = 'row'
+				style:margin-top = '0.5rem'
+			>
 				<button 
 					class = 'calculate-button'
 					onclick = {getResult}
@@ -198,7 +205,6 @@
 		display: flex;
 		flex-direction: row; /* Элементы располагаются горизонтально (в строку) */
 		align-items: center; /* Центрирует элементы по вертикали */
-		justify-content: center;
 		gap: 0.5rem; /* Отступ между TextField и иконкой */
 		width: 100%;
   	}
