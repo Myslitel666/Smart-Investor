@@ -15,6 +15,7 @@
 	let timeUnits = 'Years'
 	let replenishmentAmount = ''
 	let isReplenishable = false;
+	let generateCount = 0;
 
 	//Result
 	let error = false
@@ -22,12 +23,31 @@
 
 	//Функция, которая заполняет форму данными
 	function generateData() {
-        deposit = '100000'
-		rate = '20'
-		term = '1'
-		isReplenishable = true
-		replenishmentAmount = '20000'
-		timeUnits = "Years"
+		if (generateCount === 0) {
+			deposit = '100000';
+			rate = '20';
+			term = '1';
+			isReplenishable = true;
+			replenishmentAmount = '20000';
+			timeUnits = "Years";
+		}
+		else {
+			deposit = ((Math.floor(Math.random() * 18) + 1)*100000).toString();
+			rate = (Math.floor(Math.random() * (25 - 12 + 1)) + 12).toString();
+			isReplenishable = true;
+			replenishmentAmount = ((Math.floor(Math.random() * 15) + 1)*10000).toString();
+
+			let generatedUnits = (Math.floor(Math.random() * 2) + 1);
+			if (generatedUnits === 1) {
+				timeUnits = "Months";
+				term = (Math.floor(Math.random() * 18) + 1).toString();
+			}
+			else {
+				timeUnits = "Years";
+				term = (Math.floor(Math.random() * 10) + 1).toString();
+			}
+		} 
+		generateCount++;
     }
 
 	// Функция для форматирования числа с пробелами
@@ -75,6 +95,10 @@
             }
             result = finallySum.toFixed(2); // Форматируем результат до 2 знаков после запятой
 		}
+	}
+
+	$: if (isReplenishable === false) {
+		replenishmentAmount = ''
 	}
 </script>
 
@@ -203,13 +227,14 @@
 					style:border-color = {primary}
 					style:margin-bottom = 0.3rem
 					onclick = {()=>{
-						deposit = ''
-						rate = ''
-						term = ''
-						result = ''
-						replenishmentAmount = ''
-						isReplenishable = false
-						error = false
+						deposit = '';
+						rate = '';
+						term = '';
+						result = '';
+						replenishmentAmount = '';
+						isReplenishable = false;
+						error = false;
+						generateCount = 0;
 					}}
 				>
 					<p style:color = {primary}>CLEAR</p>
