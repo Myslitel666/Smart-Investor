@@ -52,11 +52,44 @@
 
 	// Функция для форматирования числа с пробелами
     function handleInput(str: string) {
+        str = sanitizeNumberString(str);
+		str = addThousandSeparators(str);
+
+		return str;
+    }
+
+	// Функция для очистки числовой строки
+	function sanitizeNumberString(str: string) {
         str = str.replace(/[^\d.,]/g, ''); // Убираем все нецифровые символы
 		str = str.replace(',','.') // Заменяем запятые на точки\
 		const firstDotIndex = str.indexOf('.'); //Запоминаем индекс точки, если он есть
 		str = str.slice(0, firstDotIndex + 1) + str.slice(firstDotIndex + 1).replace(/\./g, ''); //Запрещаем ввод нескольких точек
-		
+
+		return str;
+    }
+
+	// Функция, которая отделяет тысячи в числах
+	function addThousandSeparators(str: string) {
+		// Целая и Дробная часть
+		let integerPart = Math.trunc(parseFloat(str));
+		console.log('integerPart: ' + integerPart);
+
+		// Дробная часть, если она есть
+		const isDecimal = str.includes('.');
+		if (isDecimal) {
+			let decimalIndex = str.indexOf('.'); //Индекс точки
+			
+			if (decimalIndex !== str.length - 1) {
+				let decimalPart = ''; //Контейнер для дробной части
+
+				for (let i = decimalIndex + 1; i < str.length; i++) {
+					decimalPart += (str[i]);
+				}
+
+				console.log('decimalPart: ' + decimalPart);
+			}
+		}
+
 		return str;
     }
 
