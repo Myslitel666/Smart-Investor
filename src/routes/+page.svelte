@@ -235,6 +235,8 @@
 	}
 
 	.content {
+		margin-left: 1rem;
+		margin-right: 1rem;
 		display: flex;
 		flex-direction: column; /* Располагает элементы в колонку */
 		align-items: center;
