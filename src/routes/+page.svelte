@@ -157,7 +157,7 @@
 			</div>
 			<div 
 				class = 'row'
-				style:margin-top = '0.5rem'
+				style:margin-top = '0.33rem'
 			>
 				<div 
 					style:display = flex
@@ -173,7 +173,7 @@
 			</div>
 			<div 
 				class = 'row'
-				style:margin-top = '0.5rem'
+				style:margin-top = '0.33rem'
 			>
 				<button 
 					class = 'calculate-button'
