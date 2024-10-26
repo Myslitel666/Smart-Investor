@@ -9,11 +9,11 @@
 	let primary = '#0074e1'
 
 	//Functions
-	let deposit = ''
-	let rate = ''
-	let term = ''
+	let deposit = '20000'
+	let rate = '20'
+	let term = '3'
 	let timeUnits = 'Months'
-	let replenishmentAmount = ''
+	let replenishmentAmount = '20000'
 	let isReplenishable = false;
 
 	//Result
@@ -43,7 +43,13 @@
 			const P = parseFloat(deposit); // Начальная сумма
             const r = parseFloat(rate) / 100; // Годовая ставка в десятичной форме
             const t = parseFloat(term); // Срок
-            let n = 12; // Проценты начисляются ежемесячно
+			let a = parseFloat(replenishmentAmount); // Сумма пополнения
+			let n = 12; // Проценты начисляются ежемесячно
+
+			console.log(a);
+			if (Number.isNaN(a)) {
+				a = 0;
+			}
 
             if (timeUnits === "Months") {
                 n = 1; // Если месяцы, то начисляем 1 раз в месяц
@@ -53,6 +59,7 @@
 			// Цикл for для расчета сложного процента
 			for (let i = 0; i < n * t; i++) {
                 finallySum *= (1 + r/12); // Применяем формулу сложного процента для каждого периода
+				finallySum += a; // Добавляем сумму пополнения
             }
             result = finallySum.toFixed(2); // Форматируем результат до 2 знаков после запятой
 		}
