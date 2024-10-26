@@ -8,6 +8,12 @@
 	//Styles
 	let primary = '#0074e1'
 
+	//Ids
+	const depositInputId = 'deposit-input-id';
+	const percentInputId = 'percent-input-id';
+	const replenismentInputId = 'replenishment-input-id';
+	const termInutId = 'term-input-id';
+
 	//Functions
 	let deposit = ''
 	let rate = ''
@@ -120,6 +126,22 @@
 		return separatedIntegerPart;
     }
 
+	function setCursor(id: string, str: string) {
+		let htmlElement = document.getElementById(id);
+
+		if (htmlElement) {
+			const inputElement = htmlElement as HTMLInputElement; //приведение htmlElement к InputElement
+			const cursorPosition = inputElement.selectionStart; //позиция курсора
+
+			// Если каретка сразу после пробела, сдвигаем её влево
+			if (cursorPosition) {
+				if (cursorPosition > 0 && str[cursorPosition - 1] === ' ') {
+					inputElement.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
+				}
+			}
+		}
+	}
+
 	function getResult() {
 		if (!(deposit)||!(term)||!(rate)) {
 			error = true;
@@ -189,8 +211,10 @@
 			{/if}
 			<div class = 'row'>
 				<TextField 
+					id = {depositInputId}
 					bind:value = {deposit} 
-					oninput = {()=>{deposit = handleInput(deposit)}}
+					oninput = {()=>{ deposit = handleInput(deposit) }}
+					onclick = {()=>{ setCursor(depositInputId, deposit) }}
 					label = 'Deposit' 
 					primaryColor = {primary}
 					backgroundColor = 'white'
@@ -200,8 +224,10 @@
 			</div>
 			<div class = 'row'>
 				<TextField 
+					id = {percentInputId}
 					bind:value = {rate}
 					oninput = {()=>{rate = handleInput(rate)}}
+					onclick = {()=>{ setCursor(percentInputId, rate) }}
 					label = 'Interest Rate' 
 					primaryColor = {primary}
 					backgroundColor = 'white'
@@ -215,8 +241,10 @@
 					style:margin-bottom = '0.33rem'
 				>
 					<TextField 
+						id = {replenismentInputId}
 						bind:value = {replenishmentAmount}
 						oninput = {()=>{replenishmentAmount = handleInput(replenishmentAmount)}}
+						onclick = {()=>{ setCursor(replenismentInputId, replenishmentAmount) }}
 						label = 'Replenishment amount' 
 						primaryColor = {primary}
 						backgroundColor = 'white'
@@ -230,8 +258,10 @@
 				style:margin-top = '0.1rem'
 			>
 				<TextField 
+					id = {termInutId}
 					bind:value = {term}
 					oninput = {()=>{term = handleInput(term)}}
+					onclick = {()=>{ setCursor(termInutId, term) }}
 					label = 'Investment Term' 
 					primaryColor = {primary}
 					backgroundColor = 'white'
