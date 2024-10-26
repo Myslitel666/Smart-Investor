@@ -20,6 +20,16 @@
 	let error = false
 	let result = ''
 
+	//Функция, которая заполняет форму данными
+	function generateData() {
+        deposit = '100000'
+		rate = '20'
+		term = '1'
+		isReplenishable = true
+		replenishmentAmount = '20000'
+		timeUnits = "Years"
+    }
+
 	// Функция для форматирования числа с пробелами
     function handleInput(str: string) {
         str = str.replace(/[^\d.,]/g, ''); // Убираем все нецифровые символы
@@ -71,14 +81,7 @@
 <ThemeProvider>
 	<div class = 'header'>
 		<button 
-			onclick = {()=>{
-				deposit = '100000'
-				rate = '20'
-				term = '1'
-				isReplenishable = true
-				replenishmentAmount = '20000'
-				timeUnits = "Years"
-			}}
+			onclick = {generateData}
 		>
 			<img src = './USD-Coin-Logo-PNG-Color.png' class = 'logo'>
 			<p class = 'logo-p'>
@@ -159,6 +162,14 @@
 				class = 'row'
 				style:margin-top = '0.33rem'
 			>
+				<button onclick = {generateData}>
+					<p 
+						class = 'generate-button'
+						style:color = #5796D1
+					>
+						Generate
+					</p>
+				</button>
 				<div 
 					style:display = flex
 					style:align-items = center 
@@ -262,6 +273,17 @@
 		gap: 0.5rem; /* Отступ между TextField и иконкой */
 		width: 100%;
   	}
+
+	.generate-button {
+		transition: background-color 0.3s;
+		padding-left: 0.15rem;
+		padding-right: 0.15rem;
+	}
+
+	.generate-button:hover {
+		background-color: #E3F1FF;
+		cursor: pointer;
+	}
 
 	.calculate-button {
 		width: 100%;
