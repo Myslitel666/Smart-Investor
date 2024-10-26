@@ -109,6 +109,19 @@
 				/>
 				<img src = './icons/percent.png' class = 'ico'/>
 			</div>
+			{#if isReplenishable}
+				<div class = 'row'>
+					<TextField 
+						bind:value = {rate}
+						oninput = {()=>{rate = handleInput(rate)}}
+						label = 'Interest Rate' 
+						primaryColor = {primary}
+						backgroundColor = 'white'
+						width = '100%'
+					/>
+					<img src = './icons/percent.png' class = 'ico'/>
+				</div>
+			{/if}
 			<div 
 				class = 'row'
 				style:margin-top = '0.1rem'
