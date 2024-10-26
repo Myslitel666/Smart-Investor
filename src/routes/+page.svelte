@@ -9,11 +9,11 @@
 	let primary = '#0074e1'
 
 	//Functions
-	let deposit = '20000'
-	let rate = '20'
-	let term = '3'
-	let timeUnits = 'Months'
-	let replenishmentAmount = '20000'
+	let deposit = ''
+	let rate = ''
+	let term = ''
+	let timeUnits = 'Years'
+	let replenishmentAmount = ''
 	let isReplenishable = false;
 
 	//Result
@@ -73,6 +73,8 @@
 				deposit = '100000'
 				rate = '20'
 				term = '1'
+				isReplenishable = true
+				replenishmentAmount = '20000'
 				timeUnits = "Years"
 			}}
 		>
@@ -189,6 +191,8 @@
 						rate = ''
 						term = ''
 						result = ''
+						replenishmentAmount = ''
+						isReplenishable = false
 						error = false
 					}}
 				>
