@@ -24,23 +24,23 @@
 	//Функция, которая заполняет форму данными
 	function generateData() {
 		if (generateCount === 0) {
-			deposit = '100000';
-			rate = '20';
-			term = '1';
+			deposit = addThousandSeparators('100000');
+			rate = addThousandSeparators('20');
+			term = addThousandSeparators('1');
 			isReplenishable = true;
-			replenishmentAmount = '20000';
+			replenishmentAmount = addThousandSeparators('20000');
 			timeUnits = "Years";
 		}
 		else {
-			deposit = ((Math.floor(Math.random() * 18) + 1)*100000).toString();
-			rate = (Math.floor(Math.random() * (25 - 12 + 1)) + 12).toString();
+			deposit = addThousandSeparators(((Math.floor(Math.random() * 18) + 1)*100000).toString());
+			rate = addThousandSeparators((Math.floor(Math.random() * (25 - 12 + 1)) + 12).toString());
 			isReplenishable = true;
-			replenishmentAmount = ((Math.floor(Math.random() * 15) + 1)*10000).toString();
+			replenishmentAmount = addThousandSeparators(((Math.floor(Math.random() * 15) + 1)*10000).toString());
 
 			let generatedUnits = (Math.floor(Math.random() * 2) + 1);
 			if (generatedUnits === 1) {
 				timeUnits = "Months";
-				term = (Math.floor(Math.random() * 18) + 1).toString();
+				term = addThousandSeparators((Math.floor(Math.random() * 18) + 1).toString());
 			}
 			else {
 				timeUnits = "Years";
@@ -53,7 +53,10 @@
 	// Функция для форматирования числа с пробелами
     function handleInput(str: string) {
         str = sanitizeNumberString(str);
-		str = addThousandSeparators(str);
+
+		if (str !== '') {
+			str = addThousandSeparators(str);
+		}
 
 		return str;
     }
@@ -68,29 +71,53 @@
 		return str;
     }
 
+	//Удаляем все пробелы
+	function clearSpaces(str: string) {
+		return str.split(' ').join('');
+	}
+
 	// Функция, которая отделяет тысячи в числах
 	function addThousandSeparators(str: string) {
+		//Удаляем разделители (пробелы) из строки
+		str = clearSpaces(str);
+
 		// Целая и Дробная часть
-		let integerPart = Math.trunc(parseFloat(str));
-		console.log('integerPart: ' + integerPart);
+		const integerPart = Math.trunc(parseFloat(str));
+
+		let separatedIntegerPart = ''
+		let count = 0;
+
+		//Добавляем разделители (пробелы) в целую часть
+		for(let i = integerPart.toString().length - 1; i >= 0; i--) {
+			count++;
+
+			separatedIntegerPart = str[i] + separatedIntegerPart;
+			if (((count) % 3 === 0) && (count !== integerPart.toString().length)) {
+				separatedIntegerPart = ' ' + separatedIntegerPart;
+			}
+		}
 
 		// Дробная часть, если она есть
 		const isDecimal = str.includes('.');
 		if (isDecimal) {
 			let decimalIndex = str.indexOf('.'); //Индекс точки
 			
+			//Если разделитель (точка) не в конце строки
 			if (decimalIndex !== str.length - 1) {
 				let decimalPart = ''; //Контейнер для дробной части
 
-				for (let i = decimalIndex + 1; i < str.length; i++) {
+				for(let i = decimalIndex + 1; i < str.length; i++) {
 					decimalPart += (str[i]);
 				}
 
-				console.log('decimalPart: ' + decimalPart);
+				return separatedIntegerPart + '.' + decimalPart
+			}
+			else {
+				return separatedIntegerPart + '.'
 			}
 		}
 
-		return str;
+		return separatedIntegerPart;
     }
 
 	function getResult() {
@@ -100,18 +127,18 @@
 			// Сбрасываем error через 3 секунды
 			setTimeout(() => {
 				error = false;
-			}, 2250); // 3000 мс = 3 секунды
+			}, 2250);
 		}
 		else {
 			error = false;
 			
-			const P = parseFloat(deposit); // Начальная сумма
-            const r = parseFloat(rate) / 100; // Годовая ставка в десятичной форме
-            const t = parseFloat(term); // Срок
-			let a = parseFloat(replenishmentAmount); // Сумма пополнения
+			const P = parseFloat(clearSpaces(deposit)); // Начальная сумма
+
+            const r = parseFloat(clearSpaces(rate)) / 100; // Годовая ставка в десятичной форме
+            const t = parseFloat(clearSpaces(term)); // Срок
+			let a = parseFloat(clearSpaces(replenishmentAmount)); // Сумма пополнения
 			let n = 12; // Проценты начисляются ежемесячно
 
-			console.log(a);
 			if (Number.isNaN(a)) {
 				a = 0;
 			}
@@ -289,7 +316,7 @@
 				<div 
 					class = 'row'
 				>
-					<p class = 'result'>The Final Amount: <strong style:font-weight='600'>{result} CU </strong> (Currency Unit)</p>
+					<p class = 'result'>The Final Amount: <strong style:font-weight='600'>{addThousandSeparators(result)} CU </strong> (Currency Unit)</p>
 				</div>
 			</div>
 		{/if}
