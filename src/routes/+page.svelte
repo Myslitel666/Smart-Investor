@@ -137,7 +137,7 @@
 				>
 					<p style:margin-right = 0.4rem>Replenishable deposit:</p>
 					<Switch 
-						bind:value = {isReplenishable}
+						bind:isChecked = {isReplenishable}
 						color = {primary}
 					/>
 				</div>
