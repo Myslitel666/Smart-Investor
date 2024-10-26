@@ -13,6 +13,7 @@
 	let rate = ''
 	let term = ''
 	let timeUnits = 'Months'
+	let replenishmentAmount = ''
 	let isReplenishable = false;
 
 	//Result
@@ -56,8 +57,6 @@
             result = finallySum.toFixed(2); // Форматируем результат до 2 знаков после запятой
 		}
 	}
-
-	$: console.log(isReplenishable)
 </script>
 
 <ThemeProvider>
@@ -70,7 +69,7 @@
 				timeUnits = "Years"
 			}}
 		>
-			<img src = './USD-Coin-Logo-PNG-Images1.png' class = 'logo'>
+			<img src = './USD-Coin-Logo-PNG-Color.png' class = 'logo'>
 			<p class = 'logo-p'>
 				<span style:color={primary}>
 					Smart
@@ -110,16 +109,19 @@
 				<img src = './icons/percent.png' class = 'ico'/>
 			</div>
 			{#if isReplenishable}
-				<div class = 'row'>
+				<div 
+					class = 'row'
+					style:margin-bottom = '0.33rem'
+				>
 					<TextField 
-						bind:value = {rate}
-						oninput = {()=>{rate = handleInput(rate)}}
-						label = 'Interest Rate' 
+						bind:value = {replenishmentAmount}
+						oninput = {()=>{replenishmentAmount = handleInput(replenishmentAmount)}}
+						label = 'Replenishment amount' 
 						primaryColor = {primary}
 						backgroundColor = 'white'
 						width = '100%'
 					/>
-					<img src = './icons/percent.png' class = 'ico'/>
+					<img src = './icons/plus.png' style:width = '3.75rem'/>
 				</div>
 			{/if}
 			<div 
@@ -246,7 +248,6 @@
 		transition: filter 0.3s;
 	}
 
-	
 	.clear-button {
 		width: 100%;
 		border-radius: 4px;
