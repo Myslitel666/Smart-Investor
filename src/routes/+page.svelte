@@ -90,7 +90,12 @@
 		</button>
 	</div>
 	<div class = 'content'>
-		<div class = 'main-box'>
+		<div 
+			class = 'main-box'
+			style:margin-top = 0.25rem
+			style:border = 'solid #d2d2d2 1px'
+			style:background-color = #fafafa
+		>
 			<img src = './smart-investor-logo.png' class = 'box-logo'/>
 			{#if error}
 				<p class = 'message'>✘Enter the data</p>
@@ -199,7 +204,14 @@
 					<p style:color = {primary}>CLEAR</p>
 				</button>
 			</div>
-			{#if result}
+		</div>
+		{#if result}
+			<div 
+				class = 'main-box'
+				style:margin-top = 0.88rem
+				style:border = 'solid #B0CAD2 1px'
+				style:background-color = #F5FBFF
+			>
 				<div 
 					class = 'row'
 				>
@@ -210,8 +222,8 @@
 				>
 					<p class = 'result'>The Final Amount: <strong style:font-weight='600'>{result} CU </strong> (Currency Unit)</p>
 				</div>
-			{/if}
-		</div>
+			</div>
+		{/if}
 	</div>
 </ThemeProvider>
 
@@ -224,19 +236,18 @@
 
 	.content {
 		display: flex;
+		flex-direction: column; /* Располагает элементы в колонку */
+		align-items: center;
 		justify-content: center; /* Центрирует по горизонтали */
 	}
 
 	.main-box {
 		position: relative;
-		margin-top: 0.5rem;
 		padding: 1rem;
 		display: flex;
 		flex-direction: column; /* Располагает элементы вертикально */
 		align-items: center; /* Опционально: центрирует элементы по горизонтали */
 		width: 650px;
-		border: solid #d2d2d2 1px;
-		background-color: #fafafa;
 		border-radius: 7px;
 		gap: 0.2rem
 	}
@@ -302,6 +313,7 @@
 
 	.result {
 		font-size: 16px;
+		color: #1C5E9C
 	}
 
 	.message {
