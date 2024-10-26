@@ -37,9 +37,11 @@
 			// Сбрасываем error через 3 секунды
 			setTimeout(() => {
 				error = false;
-			}, 1750); // 3000 мс = 3 секунды
+			}, 2250); // 3000 мс = 3 секунды
 		}
 		else {
+			error = false;
+			
 			const P = parseFloat(deposit); // Начальная сумма
             const r = parseFloat(rate) / 100; // Годовая ставка в десятичной форме
             const t = parseFloat(term); // Срок
@@ -91,9 +93,7 @@
 		<div class = 'main-box'>
 			<img src = './smart-investor-logo.png' class = 'box-logo'/>
 			{#if error}
-				<div class = 'row'>
-					<p class = 'message'>✘Enter the required data</p>
-				</div>
+				<p class = 'message'>✘Enter the data</p>
 			{/if}
 			<div class = 'row'>
 				<TextField 
@@ -228,6 +228,7 @@
 	}
 
 	.main-box {
+		position: relative;
 		margin-top: 0.5rem;
 		padding: 1rem;
 		display: flex;
@@ -304,9 +305,11 @@
 	}
 
 	.message {
-		margin-bottom: 0.15rem;
-		margin-right: auto;
+		position: absolute;
 		color: #ee2f2f;
+		left: 0;
+		margin-top: 5.28rem;
+		margin-left: 1rem;
 	}
 
 	.logo:hover {
