@@ -63,7 +63,7 @@
 				deposit = '100000'
 				rate = '20'
 				term = '1'
-				timeUnits = "Months"
+				timeUnits = "Years"
 			}}
 		>
 			<img src = './USD-Coin-Logo-PNG-Images1.png' class = 'logo'>
