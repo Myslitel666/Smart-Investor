@@ -13,6 +13,7 @@
 	let rate = ''
 	let term = ''
 	let timeUnits = 'Months'
+	let isReplenishable = false;
 
 	//Result
 	let error = false
@@ -55,6 +56,8 @@
             result = finallySum.toFixed(2); // Форматируем результат до 2 знаков после запятой
 		}
 	}
+
+	$: console.log(isReplenishable)
 </script>
 
 <ThemeProvider>
@@ -127,8 +130,18 @@
 				class = 'row'
 				style:margin-top = '0.5rem'
 			>
-				<Switch color = {primary}/>
+				<div 
+					style:display = flex
+					style:align-items = center 
+					style:margin-left = auto
+				>
+					<p style:margin-right = 0.4rem>Replenishable deposit:</p>
+					<Switch 
+						bind:value = {isReplenishable}
+						color = {primary}
+					/>
 				</div>
+			</div>
 			<div 
 				class = 'row'
 				style:margin-top = '0.5rem'
@@ -204,6 +217,7 @@
 	.row {
 		display: flex;
 		flex-direction: row; /* Элементы располагаются горизонтально (в строку) */
+		justify-content: center;
 		align-items: center; /* Центрирует элементы по вертикали */
 		gap: 0.5rem; /* Отступ между TextField и иконкой */
 		width: 100%;
